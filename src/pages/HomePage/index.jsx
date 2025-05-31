@@ -1,6 +1,18 @@
+import { useState } from 'react';
 import './style.css';
 
 export const HomePage = () => {
+  const [likesUp, setLikesUp] = useState(0);
+  const [likesDown, setLikesDown] = useState(0);
+
+  const handleLikesUp = () => {
+    setLikesUp(likesUp + 1);
+  };
+
+  const handleLikesDown = () => {
+    setLikesDown(likesDown + 1);
+  };
+
   return (
     <div className="container">
       <div className="joke">
@@ -20,13 +32,21 @@ export const HomePage = () => {
           </p>
         </div>
         <div className="joke__likes">
-          <button id="btn-up" className="btn-like btn-like--up"></button>
+          <button
+            id="btn-up"
+            className="btn-like btn-like--up"
+            onClick={handleLikesUp}
+          ></button>
           <span id="likes-up" className="likes-count likes-count--up">
-            0
+            {likesUp}
           </span>
-          <button id="btn-down" className="btn-like btn-like--down"></button>
+          <button
+            id="btn-down"
+            className="btn-like btn-like--down"
+            onClick={handleLikesDown}
+          ></button>
           <span id="likes-down" className="likes-count likes-count--down">
-            0
+            {likesDown}
           </span>
         </div>
       </div>
