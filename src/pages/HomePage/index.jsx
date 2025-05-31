@@ -10,8 +10,6 @@ export const HomePage = () => {
       const response = await fetch('http://localhost:4000/api/jokes');
       const jsonData = await response.json();
 
-      // console.log(jsonData.data);
-
       setJokes(jsonData.data);
     };
     getData();
